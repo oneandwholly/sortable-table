@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Wrapper from "./StatusFilter.style";
 
 class StatusFilter extends Component {
   onStatusFilterClick(status) {
@@ -8,25 +9,33 @@ class StatusFilter extends Component {
   render() {
     const { filteredData } = this.props;
     return (
-      <div>
-        {Object.keys(filteredData).map(status => {
-          let style = {};
+      <Wrapper>
+        {Object.keys(filteredData).map((status, index) => {
+          let className = "filterOption";
           if (this.props.selectedFilter === status) {
-            style = { color: "blue" };
+            className += " selected";
+          }
+          if (index === 0) {
+            className += " start";
+          }
+          if (index === filteredData.length - 1) {
+            className += " end";
           }
           return (
             <div
               key={status}
-              style={style}
+              className={className}
               onClick={() => {
                 this.onStatusFilterClick(status);
               }}
             >
-              {status} ({filteredData[status].length})
+              <span>
+                {status} ({filteredData[status].length})
+              </span>
             </div>
           );
         })}
-      </div>
+      </Wrapper>
     );
   }
 }

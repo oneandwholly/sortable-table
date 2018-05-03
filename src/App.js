@@ -22,7 +22,7 @@ class App extends Component {
             collapsible
             collapsed={this.state.collapsed}
             onCollapse={this.onCollapse}
-            style={{ background: "#fff" }}
+            style={{ background: "#002140" }}
           >
             <Menu defaultSelectedKeys={["1"]} mode="inline">
               <Menu.Item key="1">
@@ -35,7 +35,7 @@ class App extends Component {
               </Menu.Item>
             </Menu>
           </Sider>
-          <Content>
+          <Content style={{ backgroundColor: "white" }}>
             <DevicesManagement />
           </Content>
         </Layout>

@@ -17,10 +17,13 @@ class DevicesManagement extends Component {
 
   render() {
     const { filteredData, selectedFilter, sortOrder } = this.props;
-    console.log(filteredData[selectedFilter]);
+    console.log(
+      "what will be fed to SortableTable",
+      filteredData[selectedFilter]
+    );
     return (
       <Wrapper>
-        <div>
+        <div className="filterActionBar">
           <StatusFilter
             filteredData={filteredData}
             selectedFilter={selectedFilter}
